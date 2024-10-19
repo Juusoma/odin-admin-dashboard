@@ -26,23 +26,28 @@ button{
     border: none;
     color: inherit;
     font: inherit;
+    font-weight: 600;
     cursor: pointer;
 }
 
 input[type="text"]{
     appearance: none;
     border: none;
+    font: inherit;
     background-color: rgb(227, 227, 227);
-    border-radius: 8px;
+    border-radius: 16px;
     height: 32px;
+    padding-left: 16px;
 }
 
 .container{
     display: grid;
-    grid-template: 1fr 5fr / 1fr 5fr;
+    grid-template: 1fr 10fr / 1fr 5fr;
 }
 
 .sidebar{
+    z-index: 1;
+
     background-color: var(--color-sidebar);
     grid-area: 1 / 1 / -1 / 2;
     height: 100vh;
@@ -92,6 +97,7 @@ input[type="text"]{
 
 .header{
     background-color: var(--color-header);
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.38);
 }
 
 .header-top{
@@ -107,13 +113,23 @@ input[type="text"]{
     gap: 32px;
 }
 
-.profile-container{
-    justify-content: end;
-    align-items: center;
+.search-container{
+    flex-grow: 1;
 }
 
 .search-bar{
     width: 50%;
+}
+
+.header-actions-container{
+    display: flex;
+    max-width: max-content;
+    gap: 16px;
+}
+
+.profile-container{
+    justify-content: end;
+    align-items: center;
 }
 
 .icon-button{
@@ -126,10 +142,27 @@ input[type="text"]{
     border-radius: 50%;
 }
 
-.profile-button{
+.header-button{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 8px;
+    padding: 16px;
+    height: 48px;
+    border-radius: 24px; 
+    background-color: var(--color-sidebar);
+    color: white;
+}
+
+.header-button:hover{
+    background-color: var(--color-sidebar-button-hover);
+}
+
+.profile-button{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    text-align: start;
     gap: 16px;
     font-size: 18px;
     font-weight: bold;
@@ -146,6 +179,13 @@ input[type="text"]{
     padding: 8px;
 }
 
+.profile-username{
+    color: rgb(121, 121, 121);
+    font-weight: 600;
+}
+
 .main-content{
+    z-index: -1;
+
     background-color: var(--color-main-content);
 }

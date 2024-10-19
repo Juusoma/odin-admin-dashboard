@@ -1,0 +1,28 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+.container{
+    display: grid;
+    grid-template: 1fr 5fr / 1fr 5fr;
+}
+
+.sidebar{
+    background-color: #1992d4;
+    grid-area: 1 / 1 / -1 / 2;
+    height: 100vh;
+}
+
+.header{
+
+}
+
+.main-content{
+    background-color: rgb(219, 219, 219);
+}

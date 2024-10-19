@@ -257,5 +257,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const cardLinks = document.querySelectorAll(".content-card-link");
+        cardLinks.forEach(c => {
+            c.addEventListener("click", e => {
+                c.parentElement.classList.toggle("content-card-followed");
+            });
+        })
+    </script>
 </body>
 </html>

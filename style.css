@@ -119,6 +119,7 @@ input[type="text"]{
 .header-top > *{
     flex: 1;
     display: flex;
+    align-items: center;
     gap: 32px;
 }
 
@@ -198,6 +199,7 @@ input[type="text"]{
     display: grid;
     grid-template-columns: 5fr 1fr;
     grid-template-rows: 50px 1fr;
+    column-gap: 32px;
     padding: 16px;
 
     overflow: auto;
@@ -213,6 +215,7 @@ input[type="text"]{
     grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
     grid-auto-rows: 125px;
     gap: 16px;
+    transition: all 1s;
 }
 
 .content-relevant-container{
@@ -228,27 +231,32 @@ input[type="text"]{
     display: flex;
     flex-direction: column;
     padding: 32px;
+    transition-property: box-shadow, border, transition, scale;
+    transition-duration: .2s;
 
     background: linear-gradient(90deg, var(--color-accent) 10px, white 10px);
-    transition: box-shadow .2s, translate .2s;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .content-card:has(.content-card-link:hover){
     box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.2);
     translate: 2px -2px;
-    transition: box-shadow .2s, translate .2s;
 }
 
-.content-card-followed
-{
+.content-card:has(.content-card-link:active){
+    scale: 1.025;
+}
+
+.content-card-followed{
+    --color-accent: rgb(108, 46, 255);
+    border: 2px solid var(--color-accent);
     grid-area: span 4 / span 3;
 }
 
 .content-card-link{
     position: relative;
     text-align: start;
-    max-height: 75%;
+    height: calc(100% - 64px);
     text-overflow: ellipsis;
     display: flex;
     flex-direction: column;
@@ -268,15 +276,15 @@ input[type="text"]{
     color: grey;
 }
 
-.content-card-summary::after{
+.content-card-link::after{
     content: "";
     position: absolute;
     width: 100%;
-    height: 100%;
-    top: 0;
+    height: 4ex;
+    bottom: 0%;
     left: 0;
 
-    background: linear-gradient(0deg, white, transparent 4ex);
+    background: linear-gradient(0deg, white, transparent);
 }
 
 .content-card-buttons-container{

@@ -88,6 +88,10 @@ input[type="text"]{
     justify-self: center;
 }
 
+.logo-text{
+    font-size: 2rem;
+}
+
 .link-icon{
     width: 32px;
     height: auto;
@@ -95,19 +99,19 @@ input[type="text"]{
 }
 
 .link-text{
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .header{
     z-index: 1;
     background-color: var(--color-header);       
     box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.38);
-    border-bottom-width: 6px;
+    border-bottom-width: 3px;
     border-bottom-style: solid;
-    border-image: linear-gradient(90deg, var(--color-sidebar),
+    border-image: linear-gradient(90deg,
                         var(--color-header)30% 70%, 
-                        var(--color-sidebar)) 6;
+                        var(--color-sidebar)) 3;
                         
     display: flex;
     justify-content: space-between;
@@ -202,7 +206,7 @@ input[type="text"]{
 
 .main-content{
     display: grid;
-    grid-template-columns: minmax(400px, 5fr) minmax(200px, 400px);
+    grid-template-columns: minmax(400px, 5fr) minmax(200px, 300px);
     column-gap: 32px;
     padding: 16px;
 
@@ -216,12 +220,16 @@ input[type="text"]{
     gap: 16px;
 }
 
+.content-title{
+    font-weight: 600;
+}
+
 .content-projects-container{
     grid-column: 1;
     grid-row: 2;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     grid-auto-rows: 125px;
     gap: 16px;
     transition: all 1s;
@@ -241,24 +249,28 @@ input[type="text"]{
     flex-direction: column;
     padding: 32px;
     transition-property: box-shadow, border, transition, scale;
-    transition-duration: .2s;
+    transition-duration: .1s;
 
     background: linear-gradient(90deg, var(--color-accent) 10px, white 10px);
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .content-card:has(.content-card-link:hover){
-    box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.2);
-    translate: 2px -2px;
+    box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.4);
+    translate: 1px -1px;
 }
 
 .content-card:has(.content-card-link:active){
-    scale: 1.025;
+    scale: 1.01;
+    translate: 0px 0px;
 }
 
 .content-card-followed{
     --color-accent: rgb(108, 46, 255);
     border: 2px solid var(--color-accent);
+    border-left: none;  /* if not set to "none", a single pixel error will sometimes occur between border and bg gradient! */
+    padding: 30px;  /* Reduce padding to counteract border, so content wrap doesn't change! */
+    padding-left: 32px;
     grid-area: span 4 / span 3;
 }
 

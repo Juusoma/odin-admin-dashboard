@@ -260,6 +260,7 @@ input[type="text"]{
 
 .content-title{
     font-weight: 600;
+    margin-top: 16px;
 }
 
 .content-projects-container{

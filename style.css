@@ -6,6 +6,7 @@ html, body{
     --color-header: white;
     --color-main-content: rgb(219, 219, 219);
     --color-accent: rgb(255, 166, 0);
+    --color-bookmark: rgb(108, 46, 255);
 
     --color-sidebar-button-hover: #1aa5f0;
     --color-generic-button-hover: rgb(230,230,230);
@@ -154,11 +155,16 @@ input[type="text"]{
     height: 40px;
     padding: 8px;
     flex-shrink: 0;
+    transition: transform .2s;
 }
 
 .icon-button:hover{
     background-color: var(--color-generic-button-hover);
     border-radius: 50%;
+}
+
+.icon-button:active{
+    transform: scale(1.1) skew(4deg);
 }
 
 .header-button{
@@ -222,6 +228,7 @@ input[type="text"]{
 
 .content-vertical-grid{
     display: grid;
+    grid-template-rows: min-content;
     gap: 16px;
 }
 
@@ -253,7 +260,7 @@ input[type="text"]{
     display: flex;
     flex-direction: column;
     padding: 32px;
-    transition-property: box-shadow, border, transition, scale;
+    transition-property: box-shadow, scale;
     transition-duration: .1s;
 
     background: linear-gradient(90deg, var(--color-accent) 10px, white 10px);
@@ -262,16 +269,14 @@ input[type="text"]{
 
 .content-card:has(.content-card-link:hover){
     box-shadow: 0px 2px 8px 0 rgba(0, 0, 0, 0.4);
-    translate: 1px -1px;
 }
 
 .content-card:has(.content-card-link:active){
     scale: 1.01;
-    translate: 0px 0px;
 }
 
-.content-card-followed{
-    --color-accent: rgb(108, 46, 255);
+.content-card-bookmarked{
+    --color-accent: var(--color-bookmark);
     border: 2px solid var(--color-accent);
     border-left: none;  /* if not set to "none", a single pixel error will sometimes occur between border and bg gradient! */
     padding: 30px;  /* Reduce padding to counteract border, so content wrap doesn't change! */
@@ -315,6 +320,11 @@ input[type="text"]{
 .content-card-buttons-container{
     margin-top: auto;
     align-self: end;    
+}
+
+.bookmark-button-highlight{
+    background-color: var(--color-bookmark);
+    border-radius: 50%;
 }
 
 .content-vertical-flex{

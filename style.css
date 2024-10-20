@@ -10,6 +10,8 @@ html, body{
 
     --color-sidebar-button-hover: #1aa5f0;
     --color-generic-button-hover: rgb(230,230,230);
+
+    --size-profile-icon: 60px;
     overflow: hidden;
 }
 
@@ -108,11 +110,8 @@ input[type="text"]{
     z-index: 1;
     background-color: var(--color-header);       
     box-shadow: 0px 2px 4px 0 rgba(0, 0, 0, 0.38);
-    border-bottom-width: 3px;
-    border-bottom-style: solid;
-    border-image: linear-gradient(90deg,
-                        var(--color-header)30% 70%, 
-                        var(--color-sidebar)) 3;
+    border-bottom: 3px solid rgb(240, 240, 240);
+    border-left: 4px solid var(--color-sidebar);
                         
     display: flex;
     justify-content: space-between;
@@ -186,12 +185,13 @@ input[type="text"]{
 
 .profile-button{
     display: flex;
-    justify-content: center;
-    align-items: end;
+    justify-content: start;
+    align-items: center;
     text-align: start;
     gap: 16px;
     font-size: 1.1rem;
     font-weight: bold;
+    flex-wrap: nowrap;
 }
 
 .profile-button:hover{
@@ -199,15 +199,35 @@ input[type="text"]{
 }
 
 .profile-icon-container{
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(0deg, rgb(255, 98, 0), rgb(193, 222, 6));
+    width: var(--size-profile-icon);
+    height: var(--size-profile-icon);
+    min-width: var(--size-profile-icon);
+    min-height: var(--size-profile-icon);
+    background: linear-gradient(0deg, 
+                        rgb(255, 98, 0), 
+                        rgb(193, 222, 6),
+                        rgb(0, 255, 98), 
+                        rgb(0, 140, 255), 
+                        rgb(149, 0, 255),
+                        rgb(255, 98, 0)
+                        );
+    --position-background: 140px; /* Change in HTML inline style */
+    background-size: 500px 500px;
+    background-position-y: var(--position-background);
     border-radius: 50%;
     overflow: hidden;
 }
 
 .profile-icon{
     padding: 8px;
+}
+
+.profile-name-container,
+.profile-fullname{
+    text-wrap: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .profile-username{
@@ -245,11 +265,6 @@ input[type="text"]{
     grid-auto-rows: 125px;
     gap: 16px;
     transition: all 1s;
-}
-
-.content-relevant-container{
-    grid-column: 2;
-    grid-row: 2;
 }
 
 .content-card{
@@ -344,6 +359,7 @@ input[type="text"]{
     padding: 12px;
     border-radius: 8px;
     background: var(--color-header);
+    gap: 8px;
 }
 
 .announcement{
@@ -368,4 +384,16 @@ input[type="text"]{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.thin-card{
+    --size-profile-icon: 48px;
+}
+
+.thin-card .profile-fullname{
+    font-size: 1rem;
+}
+
+.thin-card .profile-username{
+    font-size: .8rem;
 }

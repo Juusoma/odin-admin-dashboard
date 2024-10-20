@@ -192,10 +192,15 @@ input[type="text"]{
     text-decoration: underline;
 }
 
-.profile-icon{
+.profile-icon-container{
     width: 48px;
-    background-color: rgb(88, 88, 88);
+    height: 48px;
+    background: linear-gradient(0deg, rgb(255, 98, 0), rgb(193, 222, 6));
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-icon{
     padding: 8px;
 }
 
